@@ -98,7 +98,6 @@
     <Compile Include="2_SwitchExpression.cs" />
     <Compile Include="3_StaticLocalFunction.cs" />
     <Compile Include="5_NullableReferenceTypes.cs" />
-    <Compile Include="AsyncStream.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="4_UsingDeclarations.cs" />
