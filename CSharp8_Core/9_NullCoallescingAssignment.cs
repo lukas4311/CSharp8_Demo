@@ -10,7 +10,7 @@ namespace CSharp8_Core
             var something = new object();
 
             // old way
-            if(o == null)
+            if (o == null)
             {
                 o = something;
             }

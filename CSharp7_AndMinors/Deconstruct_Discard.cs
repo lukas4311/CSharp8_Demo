@@ -7,6 +7,9 @@ namespace CSharp7_AndMinors
     {
         public static void Demo()
         {
+            var a = Tuple.Create(10, 20, "aaaa", new Point(10,10));
+            var b = (10, 20, "aaa");
+
             // object deconstruct
             var (X, Y) = new Test { X = 10, Y = 20 };
         }
@@ -14,7 +17,7 @@ namespace CSharp7_AndMinors
         public static void DemoDiscard()
         {
             // Example of usage discard (_) in tuple deconstruct
-            var (X, _) = new Point(1, 5);
+            (int X, int _) = new Point(1, 5);
 
             // Example of usage discard in out param
             bool isNumer = int.TryParse("10", out int _);

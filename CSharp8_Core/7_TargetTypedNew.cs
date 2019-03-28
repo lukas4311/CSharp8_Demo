@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Xml;
 
 namespace CSharp8_Core
@@ -14,7 +15,7 @@ namespace CSharp8_Core
 
         public static void Demo()
         {
-            //Something.Create(new () { })
+            //Something.Create(new () {}, true);
         }
     }
 

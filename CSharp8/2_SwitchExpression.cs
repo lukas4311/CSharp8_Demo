@@ -7,13 +7,14 @@ namespace CSharp8
     {
         public static void Demo()
         {
-            //Old way
+            // Old way
             WriteLine("\nOld way");
             string DoOld(object o)
             {
                 switch (o)
                 {
                     case Test t when t.A == 1:
+                        var a = 0;
                         return "A = 1";
                     case Test t:
                         return "A != 1";
@@ -23,17 +24,6 @@ namespace CSharp8
             }
             WriteLine(DoOld(new Test { A = 1, B = 0 }));
 
-            // simple switch
-            WriteLine("\nSimple switch");
-
-            var res = 2 switch
-            {
-                1 => "Jedna",
-                2 => "Dva",
-                _ => "Jina cislice"
-            };
-            WriteLine(res);
-
             // pattern matching
             WriteLine("\nPattern matching");
             string Do(object o) => o switch
@@ -42,12 +32,12 @@ namespace CSharp8
                 Test t => "A != 1",
                 _ => "Bad data type"
             };
-            WriteLine(Do(new Test { A = 1, B = 0 }));            
+            WriteLine(Do(new Test { A = 1, B = 0 }));
 
             WriteLine("\nProperty matching");
             string DoProp(object o) => o switch
             {
-                Test { A: 2, B: var b } => $"A = 1 AND B is: {b}",
+                Test { A: 2, B: int b } => b.ToString(),
                 Test { B: var b, A: var a } => $"A:{a}, B:{b}",
                 _ => "Bad data type"
             };
@@ -67,7 +57,7 @@ namespace CSharp8
             (var a, var b) = new Test { A = 10, B = 20 };
             string DoTuple(object o) => o switch
             {
-                Test(10,20) => $"Bingo",
+                Test(10, 20) => $"Bingo",
                 Test(var a, var b) => $"{a} {b}",
                 _ => "Bat data type"
             };
@@ -90,7 +80,7 @@ namespace CSharp8
             string ResolveStateAlternative(bool? conditionA, bool? conditionB, bool superCondition) => (conditionA, conditionB, superCondition) switch
             {
                 (true, true, _) => "Yes",
-                (false, true, true)=> "Yes",
+                (false, true, true) => "Yes",
                 (false, true, _) => "No",
                 (true, false, _) => "No",
                 (false, false, _) => "No",

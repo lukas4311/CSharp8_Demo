@@ -13,7 +13,7 @@ namespace CSharp7_AndMinors
             void InArgExample(in int number)
             {
                 // Next row will raise compilation error after uncomment
-                //number = 19;
+                // number = 19;
             }
 
             BigObject bigObject = new BigObject();
