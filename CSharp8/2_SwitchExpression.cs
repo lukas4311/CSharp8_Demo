@@ -7,7 +7,21 @@ namespace CSharp8
     {
         public static void Demo()
         {
-            // TODO: discard, deconstruct, ??span??
+            //Old way
+            WriteLine("\nOld way");
+            string DoOld(object o)
+            {
+                switch (o)
+                {
+                    case Test t when t.A == 1:
+                        return "A = 1";
+                    case Test t:
+                        return "A != 1";
+                    default:
+                        return "Bad data type";
+                }
+            }
+            WriteLine(DoOld(new Test { A = 1, B = 0 }));
 
             // simple switch
             WriteLine("\nSimple switch");
@@ -28,23 +42,7 @@ namespace CSharp8
                 Test t => "A != 1",
                 _ => "Bad data type"
             };
-            WriteLine(Do(new Test { A = 1, B = 0 }));
-
-            //Old way
-            WriteLine("\nOld way");
-            string DoOld(object o)
-            {
-                switch (o)
-                {
-                    case Test t when t.A == 1:
-                        return "A = 1";
-                    case Test t:
-                        return "A != 1";
-                    default:
-                        return "Bad data type";
-                }
-            }
-            WriteLine(DoOld(new Test { A = 1, B = 0 }));
+            WriteLine(Do(new Test { A = 1, B = 0 }));            
 
             WriteLine("\nProperty matching");
             string DoProp(object o) => o switch
@@ -83,10 +81,23 @@ namespace CSharp8
                 (false, true) => "No",
                 (true, false) => "No",
                 (false, false) => "No",
-                _ => throw new InvalidOperationException("Bed operation")
+                _ => throw new InvalidOperationException("Bad operation")
             };
             WriteLine(ResolveState(false, true, true));
             WriteLine(ResolveState(false, true, false));
+
+            // Alternative tuple pattern matching
+            string ResolveStateAlternative(bool? conditionA, bool? conditionB, bool superCondition) => (conditionA, conditionB, superCondition) switch
+            {
+                (true, true, _) => "Yes",
+                (false, true, true)=> "Yes",
+                (false, true, _) => "No",
+                (true, false, _) => "No",
+                (false, false, _) => "No",
+                _ => throw new InvalidOperationException("Bad operation")
+            };
+            WriteLine(ResolveStateAlternative(false, true, true));
+            WriteLine(ResolveStateAlternative(false, true, false));
         }
 
         internal class Test

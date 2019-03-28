@@ -4,11 +4,11 @@
     {
         public static void Demo()
         {
-            (int X, int Y) homePlaceCoordinates = (X: 10, Y: 20);
-            (int X, int Y) workPlaceCoordinates = (X: 10, Y: 20);
+            (int X, int YZ) homePlaceCoordinates = (X: 10, YZ: 20);
+            (int Y, int X) workPlaceCoordinates = (Y: 10, X: 20);
 
             // Before C# 7.3
-            if (homePlaceCoordinates.X == workPlaceCoordinates.X && homePlaceCoordinates.Y == workPlaceCoordinates.Y)
+            if (homePlaceCoordinates.X == workPlaceCoordinates.X && homePlaceCoordinates.YZ == workPlaceCoordinates.Y)
             {
                 // ...
             }

@@ -6,7 +6,7 @@ namespace CSharp7_AndMinors
     {
         static void Main(string[] args)
         {
-            SpanEtc.Demo();
+            TupleEquality.Demo();
 
             Console.ReadKey();
         }

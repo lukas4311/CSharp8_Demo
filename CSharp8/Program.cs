@@ -4,8 +4,8 @@
     {
         static void Main(string[] args)
         {
-            //IndexAndRange.Demo();
-            SwitchExpression.Demo();
+            IndexAndRange.Demo();
+            //SwitchExpression.Demo();
 
             System.Console.ReadKey();
         }

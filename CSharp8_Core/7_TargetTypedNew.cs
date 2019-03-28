@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Xml;
 
 namespace CSharp8_Core
 {
@@ -10,9 +11,23 @@ namespace CSharp8_Core
         // umozni i tento zapis definice nove instance
         //var something = new Something();
         //Someting someting = new ();
+
+        public static void Demo()
+        {
+            //Something.Create(new () { })
+        }
     }
 
     internal class Something
     {
+        public static Something Create(Something2 something)
+        {
+            return new Something();
+        }
+    }
+
+    internal class Something2
+    {
+        public int X { get; set; }
     }
 }
